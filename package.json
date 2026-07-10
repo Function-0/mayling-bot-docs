@@ -1,0 +1,17 @@
+{
+  "name": "mayling-bot-docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/astro.mjs dev",
+    "build": "node scripts/astro.mjs build",
+    "preview": "node scripts/astro.mjs preview"
+  },
+  "dependencies": {
+    "astro": "^7.0.6"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
