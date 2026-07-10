@@ -5,7 +5,7 @@ export const siteConfig = {
   appId: '1501345603018293428',
   effectiveDate: 'July 10, 2026' as string | null,
   lastUpdated: 'July 10, 2026',
-  policyVersion: '1.0',
+  policyVersion: '1.3.0',
   draft: false,
   contactEmail: 'danboarknights@gmail.com' as string | null,
 };
