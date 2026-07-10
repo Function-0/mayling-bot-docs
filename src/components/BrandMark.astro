@@ -1,0 +1,25 @@
+---
+import { withBase } from '../data/site';
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<span class:list={['brand-lockup', { compact }]} aria-label="The Mayling Bot">
+  <img
+    class="brand-avatar"
+    src={withBase('the-mayling-bot.png')}
+    alt=""
+    width="44"
+    height="44"
+  />
+  {!compact && (
+    <span class="brand-copy">
+      <strong>The Mayling Bot</strong>
+      <small>Legal &amp; privacy</small>
+    </span>
+  )}
+</span>

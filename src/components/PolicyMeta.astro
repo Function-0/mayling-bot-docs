@@ -1,0 +1,24 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<div class="policy-meta" aria-label="Document metadata">
+  <div>
+    <span>Status</span>
+    <strong class:list={['status-value', { draft: siteConfig.draft }]}>
+      {siteConfig.draft ? 'Review draft' : 'Published'}
+    </strong>
+  </div>
+  <div>
+    <span>Effective</span>
+    <strong>{siteConfig.effectiveDate ?? 'Not yet effective'}</strong>
+  </div>
+  <div>
+    <span>Discord app ID</span>
+    <strong class="mono">{siteConfig.appId}</strong>
+  </div>
+  <div>
+    <span>Version</span>
+    <strong>{siteConfig.policyVersion}</strong>
+  </div>
+</div>

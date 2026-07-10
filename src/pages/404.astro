@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../data/site';
+---
+
+<BaseLayout title="Page not found · Mayling Docs" description="The requested Mayling documentation page was not found.">
+  <section class="not-found">
+    <p class="record-label">404 · No record</p>
+    <h1>This page isn't in the file.</h1>
+    <p>The link may be old, or this document has not been published yet.</p>
+    <a class="button button-primary" href={withBase()}>Return to Mayling Docs</a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,153 @@
+---
+import PolicyLayout from '../layouts/PolicyLayout.astro';
+import { siteConfig, withBase } from '../data/site';
+
+const sections = [
+  { id: 'agreement', label: 'Definitions and scope' },
+  { id: 'service', label: 'What the Service provides' },
+  { id: 'eligibility', label: 'Eligibility and server control' },
+  { id: 'acceptable-use', label: 'Acceptable use' },
+  { id: 'data-privacy', label: 'Data and privacy' },
+  { id: 'intellectual-property', label: 'Names, artwork, and intellectual property' },
+  { id: 'availability', label: 'Availability' },
+  { id: 'changes-contact', label: 'Changes and contact' },
+];
+---
+
+<PolicyLayout
+  pageTitle="Terms of Service"
+  description="Terms governing use of The Mayling Bot and the AK Guesser Activity."
+  lead="These Terms define the people, servers, and features covered by The Mayling Bot."
+  active="terms"
+  sections={sections}
+>
+  <section id="agreement">
+    <h2><span>1</span> Definitions and scope</h2>
+    <p>In these Terms:</p>
+    <ul>
+      <li><strong>“Operator”</strong> means the owner of Discord application ID <code>{siteConfig.appId}</code>, who operates and maintains the Service and can be contacted at <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.</li>
+      <li><strong>“User”</strong> means anyone who accesses or interacts with the Service.</li>
+      <li><strong>“Player”</strong> means a User who launches or plays AK Guesser.</li>
+      <li><strong>“Selected Server”</strong> means a Discord server in which the Operator has authorized and installed the Service.</li>
+      <li><strong>“Server Administrator”</strong> means a server owner or person authorized through Discord to manage the Service's permissions or available configuration in a Selected Server.</li>
+      <li><strong>“core Bot”</strong> means The Mayling Bot's Discord commands, role features, Operator-managed triggers, and automations, excluding AK Guesser.</li>
+      <li><strong>“AK Guesser”</strong>—where “AK” refers to <strong>Arknights</strong>—means the Arknights-themed Discord Activity operated as part of the same Discord application as the core Bot.</li>
+      <li><strong>“Service”</strong> means The Mayling Bot as a whole, including the core Bot and AK Guesser.</li>
+    </ul>
+    <p>
+      These Terms govern the Service identified by Discord application ID <code>{siteConfig.appId}</code>.
+      They are between Users and the Operator. Discord is not a party to them.
+    </p>
+    <p>
+      The core Bot is private and unlisted. Only the Operator may invite, install, or authorize it for Selected
+      Servers. Users and Server Administrators are not granted permission to copy, host, or redistribute the
+      Service elsewhere.
+    </p>
+    <p>
+      Server Administrators may manage the Service's Discord permissions and available configuration within their
+      Selected Server and may remove it through Discord. Access in one Selected Server does not grant installation
+      or distribution rights for another server.
+    </p>
+    <p>
+      By using the Service, a User agrees to these Terms and the <a href={withBase('privacy/')}>Privacy Policy</a>.
+      Users must also follow the <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer">Discord Terms of Service</a>,{' '}
+      <a href="https://discord.com/guidelines" target="_blank" rel="noopener noreferrer">Community Guidelines</a>, and applicable Selected Server rules.
+    </p>
+  </section>
+
+  <section id="service">
+    <h2><span>2</span> What the Service provides</h2>
+    <p>
+      The <strong>core Bot</strong> provides Operator-configured Discord utilities, prefix commands, triggers,
+      member-role features, and other automations in Selected Servers.
+    </p>
+    <p>
+      <strong>AK Guesser</strong> is an Activity within the same Discord application. It may be launched only where
+      Discord and the Service's current configuration permit it; it is not a separate application or service.
+    </p>
+    <p>
+      AK Guesser automatically posts a result summary to the Activity's launch channel when a Player completes a
+      run. Reminder mentions are separate and are sent only when the Player enables them.
+    </p>
+    <p>Features may be changed, restricted, paused, or removed as the Service continues to develop.</p>
+  </section>
+
+  <section id="eligibility">
+    <h2><span>3</span> Eligibility and server control</h2>
+    <p>
+      A User may use the Service only if they meet Discord's minimum age requirements for their country and are
+      permitted to use the applicable Selected Server and feature.
+    </p>
+    <p>
+      Server Administrators remain responsible for the Discord permissions, channels, roles, and configuration
+      they make available to the Service in their Selected Server.
+    </p>
+  </section>
+
+  <section id="acceptable-use">
+    <h2><span>4</span> Acceptable use</h2>
+    <p>
+      The Service is intended for casual, social, and utility use. Ordinary jokes, memes, playful interactions,
+      and other good-faith uses are allowed when consistent with Discord's rules and the rules of the Selected Server.
+    </p>
+    <p>
+      Users must not deliberately misuse the Service to disrupt other people, spam or flood channels, interfere with the Service's normal operation or access controls, or violate Discord's policies, applicable Selected Server rules, or applicable law.
+    </p>
+    <p>The Operator may restrict access when reasonably necessary to enforce these rules or protect Users and the Service.</p>
+  </section>
+
+  <section id="data-privacy">
+    <h2><span>5</span> Data and privacy</h2>
+    <p>
+      The Service handles Discord and feature data as described in the
+      {' '}<a href={withBase('privacy/')}>Privacy Policy</a>.
+    </p>
+  </section>
+
+  <section id="intellectual-property">
+    <h2><span>6</span> Names, artwork, and intellectual property</h2>
+    <p>
+      <strong>The Mayling Bot name and profile image.</strong> The name “Mayling” and the Bot's profile image are
+      unofficial references to Mayling, a character from
+      {' '}<a href="https://gf2exilium.sunborngame.com/" target="_blank" rel="noopener noreferrer"><em>Girls' Frontline 2: Exilium</em></a>.
+      The Service's features, content, commands, automations, and AK Guesser are otherwise unrelated to that character
+      or game. The game is associated with
+      {' '}<a href="https://sunborngame.com/" target="_blank" rel="noopener noreferrer">SUNBORN</a>{' '}and its affiliates.
+      The referenced name, character image, and marks belong to their respective rights holders. The Service is not
+      an official <em>Girls' Frontline 2: Exilium</em> product.
+    </p>
+    <p>
+      <strong>AK Guesser.</strong> AK Guesser is an unofficial Arknights-themed Activity based on
+      {' '}<a href="https://www.arknights.global/" target="_blank" rel="noopener noreferrer">Arknights</a>, developed by
+      {' '}<a href="https://ak.hypergryph.com/" target="_blank" rel="noopener noreferrer">Hypergryph</a> and published globally by
+      {' '}<a href="https://www.yostar.co.jp/arknights_page.html" target="_blank" rel="noopener noreferrer">Yostar</a>.
+      AK Guesser displays Arknights artwork and metadata sourced through
+      {' '}<a href="https://closure.wiki/" target="_blank" rel="noopener noreferrer">Closure Wiki</a>, an independent
+      fan-run Arknights database and wiki resource. Arknights names, characters, artwork, and related rights belong
+      to their respective rights holders. Any third-party audio belongs to its respective rights holders.
+      Third-party artwork, audio, and other protected content is included only where the Operator has permission or
+      another lawful basis for its use.
+    </p>
+  </section>
+
+  <section id="availability">
+    <h2><span>7</span> Availability</h2>
+    <p>
+      The Service is provided on an “as available” basis. It may be changed, restricted, or discontinued, and
+      uninterrupted or error-free operation is not guaranteed.
+    </p>
+  </section>
+
+  <section id="changes-contact">
+    <h2><span>8</span> Changes and contact</h2>
+    <p>
+      These Terms and the Privacy Policy may be updated when the Service's features or data practices materially
+      change. The current version and last-updated date will remain available on this site.
+    </p>
+    <p>
+      Questions, support requests, privacy or deletion requests, intellectual-property reports, security issues,
+      and suspected Discord-policy violations may be sent to
+      {' '}<a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.
+    </p>
+  </section>
+</PolicyLayout>

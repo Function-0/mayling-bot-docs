@@ -1,0 +1,176 @@
+---
+import PolicyLayout from '../layouts/PolicyLayout.astro';
+import { siteConfig, withBase } from '../data/site';
+
+const sections = [
+  { id: 'scope', label: 'Scope and responsibility' },
+  { id: 'core-bot-data', label: 'Data handled by the core Bot' },
+  { id: 'activity-data', label: 'Data handled by AK Guesser' },
+  { id: 'discord-access', label: 'Discord permissions and data access' },
+  { id: 'use', label: 'How data is used' },
+  { id: 'sharing', label: 'Sharing and service providers' },
+  { id: 'retention', label: 'Retention and security' },
+  { id: 'choices-contact', label: 'Choices, deletion, and contact' },
+];
+---
+
+<PolicyLayout
+  pageTitle="Privacy Policy"
+  description="How The Mayling Bot and its AK Guesser Activity handle information."
+  lead="This policy separates the core Bot from AK Guesser and explains the information handled by each."
+  active="privacy"
+  sections={sections}
+>
+  <section id="scope">
+    <h2><span>1</span> Scope and responsibility</h2>
+    <p>
+      This Privacy Policy explains how <strong>The Mayling Bot</strong> (Discord application ID
+      {' '}<code>{siteConfig.appId}</code>) handles information. Capitalized terms have the meanings given in the
+      {' '}<a href={withBase('terms/#agreement')}>Terms of Service</a>.
+    </p>
+    <p>
+      The Service contains two parts: the private core Bot used in Selected Servers and AK Guesser, an Activity
+      contained within the same Discord application. The Operator is responsible for the
+      practices described here.
+    </p>
+  </section>
+
+  <section id="core-bot-data">
+    <h2><span>2</span> Data handled by the core Bot</h2>
+    <p>Depending on the features enabled in a Selected Server, the core Bot handles these categories:</p>
+    <ul>
+      <li><strong>Server and channel information:</strong> server IDs, channel IDs, allowed-channel settings, and related Discord context.</li>
+      <li><strong>Member and role information:</strong> User or member IDs, usernames or nicknames, role IDs, and stored member-role assignments.</li>
+      <li><strong>Message and command information:</strong> message text and related identifiers used to recognize prefix commands and Operator-managed triggers.</li>
+      <li><strong>Configuration information:</strong> prefixes, Operator-managed trigger settings, role-feature settings, channel settings, and other enabled configuration.</li>
+      <li><strong>Operational information:</strong> command use, audit or error records, and identifiers needed to secure, troubleshoot, and maintain the core Bot.</li>
+    </ul>
+    <p>The core Bot accesses, uses, or retains these categories only when needed for an enabled feature, security, troubleshooting, or service operation.</p>
+  </section>
+
+  <section id="activity-data">
+    <h2><span>3</span> Data handled by AK Guesser</h2>
+    <p>AK Guesser may handle:</p>
+    <ul>
+      <li><strong>Discord identity:</strong> the Player's Discord user ID, username, and avatar.</li>
+      <li><strong>Activity context:</strong> relevant Selected Server, channel, and Activity-instance identifiers.</li>
+      <li><strong>Game information:</strong> typed guesses, progress, results, scores, timing, streaks, history, and the identifier of a posted result.</li>
+      <li><strong>Preferences:</strong> reminder choice and channel, time zone, theme, audio, transitions, and other interface settings.</li>
+      <li><strong>Session and operational information:</strong> a hashed session credential, expiry, IP-based rate-limit information, request details, and error records.</li>
+    </ul>
+    <p>
+      AK Guesser uses Discord sign-in to obtain the Player's Discord user ID, username, and avatar. Temporary Discord
+      sign-in tokens are used only to authenticate the Activity and are not stored in the Service database.
+    </p>
+  </section>
+
+  <section id="discord-access">
+    <h2><span>4</span> Discord permissions and data access</h2>
+    <p>
+      The core Bot can read messages in Discord channels where it has access so it can recognize prefix commands and
+      Operator-managed triggers. It may receive message text and related identifiers needed for those features.
+    </p>
+    <p>
+      The core Bot can also receive member and role information from Selected Servers to operate member-role
+      features. Some message-content access and member data require Discord's Message Content or Guild Members
+      privileged gateway intents. The Service uses this access only for the features described here and for
+      necessary security and troubleshooting.
+    </p>
+    <p>
+      AK Guesser uses Discord sign-in to identify the correct Player and associate that account with game state
+      and settings.
+    </p>
+  </section>
+
+  <section id="use">
+    <h2><span>5</span> How data is used</h2>
+    <p><strong>The core Bot</strong> uses information to:</p>
+    <ul>
+      <li>respond to commands, Operator-managed triggers, and configured features;</li>
+      <li>maintain server, channel, prefix, and member-role configuration; and</li>
+      <li>secure the core Bot, diagnose failures, and maintain reliability.</li>
+    </ul>
+    <p><strong>AK Guesser</strong> uses information to:</p>
+    <ul>
+      <li>authenticate the correct Player and maintain game progress, results, statistics, and settings;</li>
+      <li>post the automatic completion result in the launch channel;</li>
+      <li>send reminder mentions only when the Player enables them; and</li>
+      <li>prevent abuse, secure sessions, and diagnose failures.</li>
+    </ul>
+    <p>Both parts may also process information to comply with Discord requirements and valid legal obligations.</p>
+  </section>
+
+  <section id="sharing">
+    <h2><span>6</span> Sharing and service providers</h2>
+    <p>Information may be disclosed only as needed:</p>
+    <ul class="provider-list">
+      <li><strong>To Discord</strong> — to receive commands and account or server context, validate Activity sessions, and post automatic results or enabled reminders.</li>
+      <li><strong>To hosting, database, storage, security, and logging providers</strong> — which process information on the Operator's behalf to run and protect the Service.</li>
+      <li><strong>To Closure Wiki</strong> — when AK Guesser requests artwork or reveal metadata. Ordinary web-request information may be processed when content is served, but no Discord account identifier is intentionally included in those requests.</li>
+      <li><strong>When legally required</strong> — in response to valid legal process or when reasonably necessary to protect Users and the Service.</li>
+      <li><strong>During a Discord-approved ownership transfer</strong> — to the approved successor Operator, which assumes the applicable obligations for the Service and its Discord API data.</li>
+    </ul>
+    <p>
+      Completing an AK Guesser run automatically posts a result summary in the Activity's launch channel, where
+      Discord and people with access to that channel can receive it. Reminder mentions are sent only when enabled.
+    </p>
+    <p>The Service does not sell Discord API data or share it with advertisers or data brokers.</p>
+  </section>
+
+  <section id="retention">
+    <h2><span>7</span> Retention and security</h2>
+    <p>
+      Except where applicable law requires retention, Discord API data is promptly deleted when it is no longer
+      needed for the Service's stated functionality, when Discord or the relevant User requests deletion, or when
+      the Service stops operating.
+    </p>
+    <ul class="retention-list">
+      <li><strong>Core Bot:</strong> server configuration and member-role records are kept while needed in a Selected Server, subject to the deletion rule above.</li>
+      <li><strong>Messages:</strong> message content is processed when the core Bot handles a command, trigger, or enabled workflow. Content or identifiers retained for a configured feature, audit record, or troubleshooting are kept only while that purpose remains necessary.</li>
+      <li><strong>AK Guesser:</strong> account-linked game history and settings are kept while needed to provide progress and statistics and are deleted after a verified request or when the Activity no longer needs them.</li>
+      <li><strong>AK Guesser sessions:</strong> session credentials stop working eight hours after they are issued. The Service stores only a hash of each credential. An expired hash is not accepted for authentication but may remain stored until the retention process removes it.</li>
+      <li><strong>Operational logs:</strong> request, error, and security logs have retention separate from the eight-hour session lifetime and are kept only while needed for security or troubleshooting.</li>
+      <li><strong>Discord posts:</strong> result and reminder messages follow Discord's and the Selected Server's retention controls after they are posted.</li>
+    </ul>
+    <p>
+      Reasonable safeguards are used to protect stored Discord data, including hashed Activity session credentials
+      and server-side validation. These safeguards are designed to reduce the risk of unauthorized access, loss, or misuse.
+    </p>
+  </section>
+
+  <section id="choices-contact">
+    <h2><span>8</span> Choices, deletion, and contact</h2>
+    <p>
+      Users may stop using features, disable reminders, or deauthorize AK Guesser. Server Administrators may
+      restrict the Service's permissions, disable available features, or remove it from their Selected Server.
+      Because the core Bot is private and unlisted, Users and Server Administrators cannot independently reinstall or authorize it elsewhere.
+    </p>
+    <p>
+      A User may request access to, correction of, or deletion of account-linked data. A Server Administrator may
+      request deletion of Selected Server configuration. Reasonable verification may be required. For security,
+      include only the Discord user ID or server ID needed to locate the relevant records. Do not include passwords,
+      bot tokens, OAuth tokens, or other credentials.
+    </p>
+    <p>Send privacy and deletion requests to <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.</p>
+    <p>
+      Revoking AK Guesser's Discord authorization prevents AK Guesser from using that authorization unless the User
+      authorizes it again. Revocation does not itself delete existing account-linked game history or prevent the
+      core Bot from processing data in a Selected Server. A User may request deletion of data linked to their account.
+    </p>
+    <p>
+      Removing the core Bot from a Selected Server stops it from receiving new bot events from that server. Removal
+      does not itself delete retained data. Users may request deletion of data linked to them, and a Server
+      Administrator may request deletion of retained server configuration.
+    </p>
+    <p>
+      The Service is not directed to anyone below Discord's applicable minimum age. The Operator does not
+      independently collect or verify age. If the Operator learns that the Service obtained Discord API data from
+      someone below that age, the Operator will promptly stop processing and delete that data, except where
+      applicable law requires otherwise.
+    </p>
+    <p>
+      This policy will be updated when data categories, purposes, recipients, retention, or deletion choices
+      materially change. Routine feature changes that remain within these descriptions do not require a rewrite.
+    </p>
+  </section>
+</PolicyLayout>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig, withBase } from '../data/site';
+
+const logoUrl = withBase('the-mayling-bot.png');
+---
+
+<BaseLayout
+  title="The Mayling Bot"
+  description="Welcome to the public Terms of Service and Privacy Policy for The Mayling Bot."
+  active="home"
+>
+  <section class="welcome-page" aria-labelledby="welcome-title">
+    <div class="welcome-portrait" aria-hidden="true">
+      <div class="welcome-badge">
+        <img src={logoUrl} alt="" width="256" height="256" />
+      </div>
+      <span>Private Discord application</span>
+    </div>
+
+    <div class="welcome-copy">
+      <p class="welcome-kicker">Welcome</p>
+      <h1 id="welcome-title">The Mayling Bot</h1>
+      <p class="welcome-lead">
+        A private Discord bot with the AK Guesser Activity. The public documents below explain how the Service may
+        be used and how it handles information.
+      </p>
+
+      <nav class="welcome-links" aria-label="Legal documents">
+        <a class="welcome-link" href={withBase('terms/')}>
+          <span>
+            <small>Use and access</small>
+            <strong>Terms of Service</strong>
+          </span>
+          <span class="welcome-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="welcome-link" href={withBase('privacy/')}>
+          <span>
+            <small>Data and choices</small>
+            <strong>Privacy Policy</strong>
+          </span>
+          <span class="welcome-arrow" aria-hidden="true">→</span>
+        </a>
+      </nav>
+
+      <p class="welcome-contact">
+        Questions? <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+      </p>
+      <p class="welcome-app-id">Discord application ID <code>{siteConfig.appId}</code></p>
+    </div>
+  </section>
+</BaseLayout>

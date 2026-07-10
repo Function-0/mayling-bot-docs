@@ -1,0 +1,56 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PolicyMeta from '../components/PolicyMeta.astro';
+import { withBase } from '../data/site';
+
+interface Section {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  pageTitle: string;
+  description: string;
+  lead: string;
+  active: 'terms' | 'privacy';
+  sections: Section[];
+}
+
+const { pageTitle, description, lead, active, sections } = Astro.props;
+---
+
+<BaseLayout title={`${pageTitle} · Mayling Docs`} description={description} active={active}>
+  <div class="policy-page">
+    <nav class="document-switcher" aria-label="Legal documents">
+      <a href={withBase('terms/')} aria-current={active === 'terms' ? 'page' : undefined}>Terms of Service</a>
+      <a href={withBase('privacy/')} aria-current={active === 'privacy' ? 'page' : undefined}>Privacy Policy</a>
+    </nav>
+
+    <header class="policy-header">
+      <p class="record-label">The Mayling Bot public record</p>
+      <h1>{pageTitle}</h1>
+      <p class="policy-lead">{lead}</p>
+      <PolicyMeta />
+    </header>
+
+    <div class="policy-grid">
+      <aside class="policy-context">
+        <p class="context-title">Reading note</p>
+        <p>The core Bot and the AK Guesser Activity are described separately so their features and data practices are not conflated.</p>
+      </aside>
+
+      <article class="policy-content">
+        <slot />
+      </article>
+
+      <nav class="page-toc" aria-label="On this page">
+        <strong>On this page</strong>
+        <ol>
+          {sections.map((section) => (
+            <li><a href={`#${section.id}`}>{section.label}</a></li>
+          ))}
+        </ol>
+      </nav>
+    </div>
+  </div>
+</BaseLayout>

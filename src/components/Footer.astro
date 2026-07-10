@@ -1,0 +1,21 @@
+---
+import BrandMark from './BrandMark.astro';
+import { siteConfig, withBase } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <BrandMark compact />
+    <p>A clear public record for The Mayling Bot.</p>
+  </div>
+
+  <div class="footer-links" aria-label="Legal links">
+    <a href={withBase('terms/')}>Terms of Service</a>
+    <a href={withBase('privacy/')}>Privacy Policy</a>
+  </div>
+
+  <p class="footer-note">
+    This documentation site uses no advertising or third-party analytics.
+    <span>Last updated {siteConfig.lastUpdated}.</span>
+  </p>
+</footer>
