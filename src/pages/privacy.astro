@@ -52,15 +52,16 @@ const sections = [
     <h2><span>3</span> Data handled by AK Guesser</h2>
     <p>AK Guesser may handle:</p>
     <ul>
-      <li><strong>Discord identity:</strong> the Player's Discord user ID, username, and avatar.</li>
+      <li><strong>Discord identity:</strong> the Player's Discord user ID, username, display name, and avatar.</li>
       <li><strong>Activity context:</strong> relevant Selected Server, channel, and Activity-instance identifiers.</li>
       <li><strong>Game information:</strong> typed guesses, progress, results, scores, timing, streaks, history, and the identifier of a posted result.</li>
       <li><strong>Preferences:</strong> reminder choice and channel, time zone, theme, audio, transitions, and other interface settings.</li>
       <li><strong>Session and operational information:</strong> a hashed session credential, expiry, IP-based rate-limit information, request details, and error records.</li>
     </ul>
     <p>
-      AK Guesser uses Discord sign-in to obtain the Player's Discord user ID, username, and avatar. Temporary Discord
-      sign-in tokens are used only to authenticate the Activity and are not stored in the Service database.
+      AK Guesser uses Discord sign-in to obtain the Player's Discord user ID, username, display name, and avatar.
+      The Service may also refresh these identity details from Discord so displayed names and avatars stay current.
+      Temporary Discord sign-in tokens are used only to authenticate the Activity and are not stored in the Service database.
     </p>
   </section>
 
@@ -93,6 +94,7 @@ const sections = [
     <p><strong>AK Guesser</strong> uses information to:</p>
     <ul>
       <li>authenticate the correct Player and maintain game progress, results, statistics, and settings;</li>
+      <li>display leaderboards that show each Player's rank, name, avatar, and results to other Players;</li>
       <li>post the automatic completion result in the launch channel;</li>
       <li>send reminder mentions only when the Player enables them; and</li>
       <li>prevent abuse, secure sessions, and diagnose failures.</li>
@@ -112,7 +114,8 @@ const sections = [
     </ul>
     <p>
       Completing an AK Guesser run automatically posts a result summary in the Activity's launch channel, where
-      Discord and people with access to that channel can receive it. Reminder mentions are sent only when enabled.
+      Discord and people with access to that channel can receive it. Leaderboards inside AK Guesser likewise show
+      each Player's rank, name, avatar, and results to other Players. Reminder mentions are sent only when enabled.
     </p>
     <p>The Service does not sell Discord API data or share it with advertisers or data brokers.</p>
   </section>
